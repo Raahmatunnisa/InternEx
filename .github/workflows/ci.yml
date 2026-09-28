@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - sifa
+  pull_request:
+    branches:
+      - sifa
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build -t internex-app .
+
+      - name: Check Laravel
+        run: |
+          docker run --rm internex-app php artisan --version
