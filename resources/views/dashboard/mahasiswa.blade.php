@@ -127,7 +127,7 @@ $greetingIcon = $hour < 11 ? 'sunrise' : ($hour < 18 ? 'sun' : 'moon');
                     </div>
                     <div class="flex items-center justify-between">
                         <span class="text-slate-500">Status</span>
-                        <x-badge :status="$todayAttendance->status">{{ ucfirst($todayAttendance->status) }}</x-badge>
+                        <x-badge :status="$todayAttendance->display_status">{{ $todayAttendance->display_label }}</x-badge>
                     </div>
                 </div>
             @else

@@ -100,4 +100,63 @@ class Internship extends Model
 
         return (int) min(100, round(($elapsedDays / $totalDays) * 100));
     }
+
+    /**
+     * Jumlah hari kerja (Senin-Jumat) yang sudah berlalu sejak mulai magang
+     * sampai hari ini (atau sampai tanggal selesai jika sudah lewat).
+     */
+    public function workingDaysElapsed(): int
+    {
+        $start = $this->start_date->copy()->startOfDay();
+        $end = now()->startOfDay()->min($this->end_date->copy()->startOfDay());
+
+        if ($end->lessThan($start)) {
+            return 0;
+        }
+
+        $days = 0;
+        $cursor = $start->copy();
+
+        while ($cursor->lessThanOrEqualTo($end)) {
+            if (! $cursor->isWeekend()) {
+                $days++;
+            }
+            $cursor->addDay();
+        }
+
+        return $days;
+    }
+
+    /**
+     * Persentase progress pengisian logbook harian: jumlah hari kerja yang
+     * sudah diisi logbook dibanding jumlah hari kerja yang sudah berjalan.
+     */
+    public function logbookProgressPercentage(): int
+    {
+        $totalWorkingDays = $this->workingDaysElapsed();
+
+        if ($totalWorkingDays <= 0) {
+            return 0;
+        }
+
+        $filledDays = $this->logbooks()->distinct('date')->count('date');
+
+        return (int) min(100, round(($filledDays / $totalWorkingDays) * 100));
+    }
+
+    /**
+     * Persentase progress laporan akhir berdasarkan status terakhir yang
+     * tercatat pada tabel final_reports.
+     */
+    public function reportProgressPercentage(): int
+    {
+        return match ($this->finalReport?->status) {
+            'approved' => 100,
+            'reviewed' => 75,
+            'revision' => 60,
+            'submitted' => 50,
+            'draft' => 10,
+            default => 0,
+        };
+    }
 }

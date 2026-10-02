@@ -18,7 +18,7 @@
                     </div>
                     <div>
                         <p class="text-lg font-bold text-slate-900 leading-none">InternX</p>
-                        <p class="text-xs text-slate-400 mt-1">Catat. Hadir. Berkembang.</p>
+                        <p class="text-xs text-slate-400 mt-1">Kontribusi. Berkembang. Berdampak.</p>
                     </div>
                 </div>
 
@@ -56,7 +56,7 @@
                     </div>
 
                     <x-button type="submit" class="w-full">
-                        <i data-lucide="log-in" class="w-4 h-4"></i> Masuk ke Workspace
+                        <i data-lucide="log-in" class="w-4 h-4"></i> Masuk 
                     </x-button>
                 </form>
 
@@ -85,7 +85,7 @@
         <div class="hidden lg:block relative p-6">
             <x-photo-carousel
                 title="Selamat Datang di InternX"
-                subtitle="Kelola perjalanan magangmu dengan lebih terstruktur, profesional, dan terukur."
+                subtitle="Kelola Magang. Pantau Perkembangannya."
                 class="h-full"
             />
         </div>

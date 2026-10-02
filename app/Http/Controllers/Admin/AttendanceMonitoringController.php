@@ -267,7 +267,7 @@ class AttendanceMonitoringController extends Controller
                 $attendance->date->format('Y-m-d'),
                 $attendance->check_in_time?->format('H:i') ?? '-',
                 $attendance->check_out_time?->format('H:i') ?? '-',
-                ucfirst($attendance->status),
+                $attendance->display_label,
             ]);
         }
 

@@ -67,7 +67,7 @@ $greetingIcon = $hour < 11 ? 'sunrise' : ($hour < 18 ? 'sun' : 'moon');
                             <tr>
                                 <td class="py-2.5 font-medium text-slate-800">{{ $att->internship->student->name }}</td>
                                 <td class="py-2.5 text-slate-500">{{ $att->date->translatedFormat('d M Y') }}</td>
-                                <td class="py-2.5"><x-badge :status="$att->status">{{ ucfirst($att->status) }}</x-badge></td>
+                                <td class="py-2.5"><x-badge :status="$att->display_status">{{ $att->display_label }}</x-badge></td>
                             </tr>
                         @endforeach
                     </tbody>

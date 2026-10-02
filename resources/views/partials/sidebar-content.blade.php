@@ -5,7 +5,7 @@
         </div>
         <div>
             <p class="font-bold text-white leading-none">InternX</p>
-            <p class="text-[11px] text-slate-400 mt-1">Catat. Hadir. Berkembang.</p>
+            <p class="text-[11px] text-slate-400 mt-1">Kontribusi. Berkembang. Berdampak.</p>
         </div>
     </div>
 
@@ -35,6 +35,9 @@
                 </a>
                 <a href="{{ route('admin.attendance-monitoring.index') }}" class="nav-link {{ request()->routeIs('admin.attendance-monitoring.*') ? 'active' : '' }}">
                     <i data-lucide="calendar-check" class="w-5 h-5"></i> Monitoring Kehadiran
+                </a>
+                <a href="{{ route('admin.performance-monitoring.index') }}" class="nav-link {{ request()->routeIs('admin.performance-monitoring.*') ? 'active' : '' }}">
+                    <i data-lucide="activity" class="w-5 h-5"></i> Monitoring Kinerja
                 </a>
                 <a href="{{ route('profile.edit') }}" class="nav-link {{ request()->routeIs('profile.*') ? 'active' : '' }}">
                     <i data-lucide="user-round" class="w-5 h-5"></i> Pengaturan Akun
