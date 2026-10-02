@@ -1,6 +1,6 @@
 # InternX
 
-**Catat. Hadir. Berkembang.**
+**Kontribusi. Berkembang. Berdampak.**
 
 InternX adalah sistem monitoring kegiatan magang mahasiswa: logbook harian, absensi masuk/pulang, pengumpulan laporan akhir, serta review oleh mentor — dibangun dengan Laravel 13, Blade, dan Tailwind CSS v4.
 
