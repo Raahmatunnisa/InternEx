@@ -3,10 +3,10 @@ name: CI
 on:
   push:
     branches:
-      - sifa
+      - main
   pull_request:
     branches:
-      - sifa
+      - main
 
 jobs:
   docker:
