@@ -52,7 +52,7 @@
                             <td class="px-4 py-3 text-slate-700 font-medium">{{ $attendance->date->translatedFormat('d M Y') }}</td>
                             <td class="px-4 py-3 text-slate-500">{{ $attendance->check_in_time?->format('H:i') ?? '-' }}</td>
                             <td class="px-4 py-3 text-slate-500">{{ $attendance->check_out_time?->format('H:i') ?? '-' }}</td>
-                            <td class="px-4 py-3"><x-badge :status="$attendance->status">{{ ucfirst($attendance->status) }}</x-badge></td>
+                            <td class="px-4 py-3"><x-badge :status="$attendance->display_status">{{ $attendance->display_label }}</x-badge></td>
                         </tr>
                     @endforeach
                 </tbody>

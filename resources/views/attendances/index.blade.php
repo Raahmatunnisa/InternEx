@@ -31,7 +31,7 @@
                             <span class="text-slate-600">Pulang: <span class="font-semibold text-slate-900">{{ $todayAttendance->check_out_time->format('H:i') }}</span></span>
                         </div>
                     @endif
-                    <x-badge :status="$todayAttendance->status">{{ ucfirst($todayAttendance->status) }}</x-badge>
+                    <x-badge :status="$todayAttendance->display_status">{{ $todayAttendance->display_label }}</x-badge>
                 </div>
                 @if(!$todayAttendance->check_in_time)
                     <p class="text-slate-400 text-sm mt-2">Hari ini tercatat sebagai <strong>{{ $todayAttendance->status }}</strong>, sehingga tidak ada jam masuk/pulang.</p>
@@ -113,7 +113,7 @@
                             <td class="px-4 py-3 text-slate-700">{{ $attendance->date->translatedFormat('d M Y') }}</td>
                             <td class="px-4 py-3 text-slate-500">{{ $attendance->check_in_time?->format('H:i') ?? '-' }}</td>
                             <td class="px-4 py-3 text-slate-500">{{ $attendance->check_out_time?->format('H:i') ?? '-' }}</td>
-                            <td class="px-4 py-3"><x-badge :status="$attendance->status">{{ ucfirst($attendance->status) }}</x-badge></td>
+                            <td class="px-4 py-3"><x-badge :status="$attendance->display_status">{{ $attendance->display_label }}</x-badge></td>
                         </tr>
                     @endforeach
                 </tbody>

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AssessmentController as AdminAssessmentController;
 use App\Http\Controllers\Admin\AttendanceMonitoringController as AdminAttendanceMonitoringController;
+use App\Http\Controllers\Admin\PerformanceMonitoringController as AdminPerformanceMonitoringController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\DivisionController;
 use App\Http\Controllers\Admin\MahasiswaController;
@@ -135,5 +136,11 @@ Route::middleware('auth')->group(function () {
         Route::post('kehadiran/import', [AdminAttendanceMonitoringController::class, 'import'])->name('attendance-monitoring.import');
         Route::get('kehadiran/export', [AdminAttendanceMonitoringController::class, 'export'])->name('attendance-monitoring.export');
         Route::get('kehadiran/{internship}', [AdminAttendanceMonitoringController::class, 'detail'])->name('attendance-monitoring.detail');
+
+        Route::get('kinerja', [AdminPerformanceMonitoringController::class, 'index'])->name('performance-monitoring.index');
+        Route::get('kinerja/{internship}', [AdminPerformanceMonitoringController::class, 'detail'])->name('performance-monitoring.detail');
+        Route::get('kinerja/{internship}/laporan/preview', [AdminPerformanceMonitoringController::class, 'reportPreview'])->name('performance-monitoring.report-preview');
+        Route::get('kinerja/{internship}/laporan/download', [AdminPerformanceMonitoringController::class, 'reportDownload'])->name('performance-monitoring.report-download');
+        Route::get('kinerja/{internship}/logbook/dokumen', [AdminPerformanceMonitoringController::class, 'logbookDocument'])->name('performance-monitoring.logbook-document');
     });
 });

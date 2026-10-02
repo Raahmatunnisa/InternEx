@@ -178,7 +178,7 @@
         <div class="doc-header">
             <div>
                 <div class="brand">InternX</div>
-                <div class="tagline">Catat. Hadir. Berkembang.</div>
+                <div class="tagline">Kontribusi. Berkembang. Berdampak.</div>
             </div>
             <div class="doc-title">
                 <h1>Dokumen Nilai Magang</h1>
